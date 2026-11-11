@@ -1,0 +1,80 @@
+{
+  "catalog_version": "2026-11-03",
+  "description": "Curated pfSense/Netgate vulnerability and security-advisory starter catalogue. Verify every item against its live vendor source before remediation.",
+  "advisories": [
+    {
+      "id": "CVE-2026-109618",
+      "title": "Critical PHP security issue affecting pfSense GUI/Captive Portal exposure",
+      "severity": "CRITICAL",
+      "affected_through": {},
+      "recommendation": "Inventory the installed PHP package and exposure of the WebGUI/Captive Portal. Follow the exact Netgate CLI package-update procedure for the target pfSense release. Netgate's October 21, 2026 guidance publishes both a package-update-and-reboot method and a PHP-FPM/WebGUI restart method. Do not target guessed php82/php83/php84/php85 package names.",
+      "source_url": "https://www.netgate.com/blog/critical-php-security-update"
+    },
+    {
+      "id": "CVE-2026-109619",
+      "title": "Critical PHP security issue affecting pfSense GUI/Captive Portal exposure",
+      "severity": "CRITICAL",
+      "affected_through": {},
+      "recommendation": "Inventory the installed PHP package and exposure of the WebGUI/Captive Portal. Follow the exact Netgate CLI package-update procedure for the target pfSense release. Netgate's October 21, 2026 guidance publishes both a package-update-and-reboot method and a PHP-FPM/WebGUI restart method. Do not target guessed php82/php83/php84/php85 package names.",
+      "source_url": "https://www.netgate.com/blog/critical-php-security-update"
+    },
+    {
+      "id": "CVE-2026-97730",
+      "title": "Dashboard widget sequence path traversal / local file inclusion",
+      "severity": "HIGH",
+      "affected_through": {
+        "CE": "2.8.1"
+      },
+      "recommendation": "Restrict dashboard modification privileges to trusted administrators and verify the Netgate System Patches correction or a fixed release (Plus 26.07 or later; CE release after 2.8.1). Do not delete the full widgets configuration as an improvised fix.",
+      "source_url": "https://docs.netgate.com/downloads/pfSense-SA-26_18.webgui.asc",
+      "severity_source_url": "https://www.tenable.com/cve/CVE-2026-97730",
+      "affected_before": {
+        "Plus": "26.07"
+      }
+    },
+    {
+      "id": "CVE-2026-38961",
+      "title": "Stored XSS in the RSS dashboard widget",
+      "severity": "MEDIUM",
+      "affected_through": {
+        "Plus": "26.03",
+        "CE": "2.8.1"
+      },
+      "recommendation": "Until patched, remove untrusted RSS feeds or remove the RSS widget. Verify the Netgate System Patches correction or a fixed release (Plus 26.07 or later; CE release after 2.8.1). Do not remove all dashboard widgets.",
+      "source_url": "https://docs.netgate.com/downloads/pfSense-SA-26_04.webgui.asc",
+      "severity_source_url": "https://www.tenable.com/cve/CVE-2026-38961"
+    },
+    {
+      "id": "CVE-2026-92182",
+      "title": "XML-RPC privilege-check issue with remote LDAP/RADIUS authentication",
+      "severity": "UNRATED",
+      "affected_through": {},
+      "recommendation": "Review whether system authentication uses LDAP/RADIUS and whether all valid remote users have matching local account entries. Netgate's workaround is to ensure matching local accounts or avoid remote authentication for the system itself. Do not infer safety from version alone: the advisory's affected-version and branch-specific System Patches guidance requires administrator verification.",
+      "source_url": "https://docs.netgate.com/downloads/pfSense-SA-26_22.webgui.asc"
+    },
+    {
+      "id": "CVE-2023-27100",
+      "title": "SSHGuard anti-brute-force protection bypass via crafted WebGUI requests",
+      "severity": "CRITICAL",
+      "affected_through": {
+        "Plus": "22.05.1",
+        "CE": "2.6.0"
+      },
+      "recommendation": "This affected historical releases (Plus 22.05.1 and CE 2.6.0) and was corrected in Plus 23.01 or later and CE 2.7.0 or later. Keep the WebGUI off untrusted networks and verify firmware/patch state. It is not remediated by blindly changing SSHGuard settings.",
+      "source_url": "https://docs.netgate.com/downloads/pfSense-SA-23_05.sshguard.asc",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2023-27100"
+    },
+    {
+      "id": "pfSense-SA-25_09.sshguard",
+      "title": "SSHGuard/WebGUI anti-brute-force parsing bypass and log manipulation advisory",
+      "severity": "UNRATED",
+      "affected_through": {},
+      "fixed_from": {
+        "Plus": "25.11",
+        "CE": "2.9.0"
+      },
+      "recommendation": "Keep WebGUI access restricted to trusted networks and verify the vendor release/System Patches correction. Netgate states this issue affects WebGUI login methods, not SSH logins. Avoid treating SSH key-only access as a complete fix for a WebGUI log-parsing defect.",
+      "source_url": "https://docs.netgate.com/downloads/pfSense-SA-25_09.sshguard.asc"
+    }
+  ]
+}
